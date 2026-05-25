@@ -13,20 +13,10 @@ def home():
 def submit_data():
     # Grab the information typed into the HTML input fields
     name = request.form.get('user_name')
-    @app.route('/submit', methods=['POST'])
-def submit_data():
-    name = request.form.get('user_name')
     phone = request.form.get('user_phone')
     
-    # ADD THIS LINE TO SEE IT IN RENDER LOGS:
-    print(f"NEW SUBMISSION -> Name: {name}, Phone: {phone}")
-    
-    with open('submissions.csv', mode='a', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerow([name, phone])
-        
-    return "<h1>Thank you! Your information has been saved successfully.</h1>"
-    phone = request.form.get('user_phone')
+    # 🌟 THIS IS THE NEW LINE YOU ARE ADDING:
+    print(f"NEW SUBMISSION -> Name: {name}, Phone: {phone}", flush=True)
     
     # Save the data into a local text file structured as a CSV spreadsheet
     with open('submissions.csv', mode='a', newline='', encoding='utf-8') as file:
@@ -34,3 +24,9 @@ def submit_data():
         writer.writerow([name, phone])
         
     return "<h1>Thank you! Your information has been saved successfully.</h1>"
+
+# 3. Force Render to use the correct port
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
