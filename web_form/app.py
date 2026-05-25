@@ -34,20 +34,3 @@ def submit_data():
         writer.writerow([name, phone])
         
     return "<h1>Thank you! Your information has been saved successfully.</h1>"
-
-if __name__ == '__main__':
-    # Run the server locally on your PC
-     app.run(debug=True, host='0.0.0.0')
-    @app.route('/submit', methods=['POST'])
-def submit_data():
-    name = request.form.get('user_name')
-    phone = request.form.get('user_phone')
-    
-    # ADD THIS LINE TO SEE IT IN RENDER LOGS:
-    print(f"NEW SUBMISSION -> Name: {name}, Phone: {phone}")
-    
-    with open('submissions.csv', mode='a', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerow([name, phone])
-        
-    return "<h1>Thank you! Your information has been saved successfully.</h1>"
