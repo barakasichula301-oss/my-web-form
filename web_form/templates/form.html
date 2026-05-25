@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Collection Form</title>
+    <style>
+        /* Modern Reset and Smooth Font Loading */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Beautiful Gradient Background covering the full screen */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Animated and Styled Card Container */
+        .form-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header Layout styling */
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h2 {
+            color: #333333;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: #777777;
+            font-size: 14px;
+        }
+
+        /* Input Group styling */
+        .input-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        /* Bold and clean Form Labels */
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* High-quality Input Fields with Focus transitions */
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #2d3748;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        /* Interactive Focus Effect: Box glows when user clicks inside to type */
+        .input-group input:focus {
+            border-color: #667eea;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+        }
+
+        /* Submit Button with hover animations */
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s var(--ease);
+            margin-top: 10px;
+        }
+
+        /* Button Hover Effect: slightly lifts up and intensifies shadow */
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            filter: brightness(1.05);
+        }
+
+        /* Button Active Effect: sinks slightly when clicked down */
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <div class="form-header">
+        <h2>Submit Your Details</h2>
+        <p>Please fill out the information below carefully.</p>
+    </div>
+
+    <form action="/submit" method="POST">
+        <div class="input-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="user_name" placeholder="John Doe" required autocomplete="name">
+        </div>
+        
+        <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="user_phone" placeholder="e.g., +255 712 345 678" required autocomplete="tel">
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Securely</button>
+    </form>
+</div>
+
+</body>
+</html>
